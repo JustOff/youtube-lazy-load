@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+	<em:id>youtubelazy@Off.JustOff</em:id>
+	<em:version>1.0.1</em:version>
+	<em:type>2</em:type>
+	<em:bootstrap>true</em:bootstrap>
+	<em:name>YouTube Lazy Load</em:name>
+	<em:description>Prevent YouTube from auto-load and auto-play videos</em:description>
+	<em:creator>Off JustOff &lt;Off.Just.Off@gmail.com&gt;</em:creator>
+	<em:homepageURL>https://github.com/JustOff/youtube-lazy-load/</em:homepageURL>
+	<em:targetApplication>
+	  <Description>
+		<em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+		<em:minVersion>26.0</em:minVersion>
+		<em:maxVersion>*</em:maxVersion>
+	  </Description>
+	</em:targetApplication>
+  </Description>
+</RDF>
