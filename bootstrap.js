@@ -22,7 +22,7 @@ function startup(data, reason) {
 function onYouTubePlayerReady (e) {
   try {
     let pathname = document.location.pathname;
-    if (pathname.startsWith("/user") || pathname.startsWith("/channel") || pathname.startsWith("/watch")) {
+    if (pathname.startsWith("/user") || pathname.startsWith("/channel")) {
       e.stopVideo();
     }
   }
