@@ -59,6 +59,31 @@ function onYouTubePlayerReady (e) {
     }
   });
 });
+window.ytplayer = ytplayer || {};
+Object.defineProperty(window.ytplayer, "load", {
+  configurable: true,
+  get: () => function() {
+//    alert("load");
+    let embplayer = document.createElement("iframe");
+    embplayer.src = location.href.replace(/watch\?(?:.*)v=([A-Za-z0-9_-]{11}).*/, "embed/$1");
+    embplayer.src = embplayer.src + ('?showinfo=0&autoplay=false');
+    embplayer.setAttribute("allowfullscreen", "");
+    embplayer.style = "width: 100%; height: 100%;";
+    let pdiv = document.getElementById("player-api");
+    embplayer.style.height=pdiv.clientHeight+'px';
+    embplayer.style.width=pdiv.clientWidth+'px';
+    pdiv.parentNode.replaceChild(embplayer, pdiv);
+  }
+});
+var ytspf = ytspf || {};
+Object.defineProperty(window.ytspf, "enabled", {
+  configurable: true,
+  get: () => false
+});
+let fixstyle = document.createElement("style");
+fixstyle.type = "text/css";
+fixstyle.innerHTML = "#placeholder-player, #theater-background {display: none;}#player-playlist {position: inherit !important;}";
+document.getElementsByTagName("head")[0].appendChild(fixstyle);
 // HTML5 spf forward
 document.addEventListener("spfpartprocess", function (e) {
   if (e.detail && e.detail.part && e.detail.part.data && e.detail.part.data.swfcfg) {
