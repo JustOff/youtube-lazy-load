@@ -69,6 +69,20 @@ document.addEventListener("spfpartprocess", function (e) {
     e.detail.part.data.swfcfg.args.autoplay = "0";
   }
 });
+(function(doc, win) {
+  function stopVideo() {
+    var player = doc.getElementById('movie_player');
+    if (player != null && player.nodeType == 1 && player.tagName == 'DIV') {
+      player.stopVideo();
+    } else {
+      win.setTimeout(stopVideo, 50);
+    }
+  }
+
+  if (doc.location.pathname.startsWith("/watch")) {
+    stopVideo();
+  }
+})(document, document.defaultView);
 `;
 				aSubject.documentElement.appendChild(script);
 			}
